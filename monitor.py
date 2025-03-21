@@ -18,7 +18,7 @@ def get_system_usage():
     Retrieves the current CPU, memory, and disk usage of the system.
 
     Returns:
-        str: A formatted string containing CPU usage percentage, memory usage percentage, and disk usage percentage.
+        str: A formatted string containing CPU usage percentage, memory usage percentage, and disk usage percentage
     """
     cpu_usage = psutil.cpu_percent(interval=1)  # CPU usage percentage
     memory_usage = psutil.virtual_memory()  # Memory (RAM) usage
