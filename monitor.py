@@ -40,18 +40,17 @@ def get_system_usage():
 
 def log_usage(cpu_usage, memory_usage, disk_usage):
     """
-    Logs the system's CPU, memory, and disk usage to a file and returns the formatted log entry.
+       Logs the system's CPU, memory, and disk usage to both a CSV file and a formatted string for terminal display.
 
-    Args:
-        cpu_usage (float): The percentage of CPU usage.
-        memory_usage (float): The percentage of memory usage.
-        disk_usage (float): The percentage of disk usage.
+       Args:
+           cpu_usage (float): The percentage of CPU usage.
+           memory_usage (float): The percentage of memory usage.
+           disk_usage (float): The percentage of disk usage.
 
-    Returns:
-        tuple:
-            - log_entry (str): Plain text log entry for file logging.
-            - print_entry (str): Colored log entry for terminal output.
-    """
+       Returns:
+           str: A formatted log entry with colored output for terminal display.
+
+       """
     cpu_label_color = f"{WARNING_COLOR}⚠️ CPU: {cpu_usage}%{Style.RESET_ALL}" if cpu_usage > HIGH_CPU_USAGE else f"{OK_COLOR}CPU: {cpu_usage}%{Style.RESET_ALL}"
     mem_label_color = f"{WARNING_COLOR}⚠️ Memory: {memory_usage}%{Style.RESET_ALL}" if memory_usage > HIGH_MEMORY_USAGE else f"{OK_COLOR}Memory: {memory_usage}%{Style.RESET_ALL}"
     disk_label_color = f"{OK_COLOR}Disk: {disk_usage}%{Style.RESET_ALL}"
