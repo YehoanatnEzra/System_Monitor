@@ -5,8 +5,7 @@ import os
 
 HIGH_CPU_USAGE = 90
 HIGH_MEMORY_USAGE = 80
-LOG_FILE_PATH_WINDOWS = "C:\\Users\\yonzr\\Desktop\\Yehonatan\\my_projects\\Monitor\\SysMonitor\\system_usage.log"
-LOG_FILE_PATH_LINUX = "/mnt/c/users/yonzr/desktop/yehonatan/my_projects/monitor/sysmonitor/system_usage.log"
+LOG_FILE_PATH = os.path.join(os.getcwd(), "system_usage.log")
 
 
 def get_system_usage():
@@ -29,19 +28,12 @@ def log_usage(cpu_usage, memory_usage, disk_usage):
 
     The log entry includes a timestamp and is appended to the "system_usage.log" file.
     """
-    if os.name == "nt":
-        # Windows
-        log_file_path = LOG_FILE_PATH_WINDOWS
-    else:
-        # Linux
-        log_file_path = LOG_FILE_PATH_LINUX
-
     cpu_label = f"⚠️ CPU: {cpu_usage}%" if cpu_usage > HIGH_CPU_USAGE else f"CPU: {cpu_usage}%"
     mem_label = f"⚠️ Memory: {memory_usage}%" if memory_usage > HIGH_MEMORY_USAGE else f"Memory: {memory_usage}%"
     disk_label = f"Disk: {disk_usage}%"
 
     log_entry = f"{time.strftime('%Y-%m-%d %H:%M:%S')} - CPU: {cpu_label} | Memory: {mem_label} | Disk: {disk_label}"
-    with open(log_file_path, "a", encoding="utf-8") as log_file:
+    with open(LOG_FILE_PATH, "a", encoding="utf-8") as log_file:
         log_file.write(log_entry + "\n")
 
     return log_entry
