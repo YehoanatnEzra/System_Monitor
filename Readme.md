@@ -18,8 +18,6 @@ To use the System Monitor locally, follow these steps:
 ## GitHub Actions Automation
 This project uses GitHub Actions to automatically execute the script every 5 minutes. The workflow is defined in `.github/workflows/monitor_tests.yml`.
 
-```
-
 ## Example Output
 ### Terminal Output (Colored)
 ```
