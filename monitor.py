@@ -2,10 +2,15 @@
 import psutil
 import time
 import os
+from colorama import init, Fore, Style
 
 HIGH_CPU_USAGE = 90
 HIGH_MEMORY_USAGE = 80
 LOG_FILE_PATH = os.path.join(os.getcwd(), "system_usage.log")
+
+# Colors
+WARNING_COLOR = Fore.RED + Style.BRIGHT   # red for warnings
+OK_COLOR = Fore.GREEN + Style.BRIGHT
 
 
 def get_system_usage():
@@ -28,11 +33,12 @@ def log_usage(cpu_usage, memory_usage, disk_usage):
 
     The log entry includes a timestamp and is appended to the "system_usage.log" file.
     """
-    cpu_label = f"⚠️ CPU: {cpu_usage}%" if cpu_usage > HIGH_CPU_USAGE else f"CPU: {cpu_usage}%"
-    mem_label = f"⚠️ Memory: {memory_usage}%" if memory_usage > HIGH_MEMORY_USAGE else f"Memory: {memory_usage}%"
-    disk_label = f"Disk: {disk_usage}%"
 
-    log_entry = f"{time.strftime('%Y-%m-%d %H:%M:%S')} - CPU: {cpu_label} | Memory: {mem_label} | Disk: {disk_label}"
+    cpu_label = f"{WARNING_COLOR}⚠️ CPU: {cpu_usage}%" if cpu_usage > HIGH_CPU_USAGE else f"{OK_COLOR}CPU: {cpu_usage}%"
+    mem_label = f"{WARNING_COLOR}⚠️ Memory: {memory_usage}%" if memory_usage > HIGH_MEMORY_USAGE else f"{OK_COLOR}Memory: {memory_usage}%"
+    disk_label = f"{OK_COLOR}Disk: {disk_usage}%"
+
+    log_entry = f"{time.strftime('%Y-%m-%d %H:%M:%S')} - {cpu_label} | {mem_label} | {disk_label}"
     with open(LOG_FILE_PATH, "a", encoding="utf-8") as log_file:
         log_file.write(log_entry + "\n")
 
