@@ -11,7 +11,7 @@ HIGH_CPU_USAGE = 90  # Percentage threshold for high CPU usage
 HIGH_MEMORY_USAGE = 80  # Percentage threshold for high memory usage
 
 # Define log file path in the current working directory
-LOG_FILE_PATH = os.path.join(os.getcwd(), "system_usage.log")
+LOG_FILE_PATH = os.path.join(os.getcwd(), "system_usage.csv")
 
 # Initialize colorama for cross-platform colored output
 init(autoreset=True)
