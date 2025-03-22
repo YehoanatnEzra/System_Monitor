@@ -1,6 +1,4 @@
 # Automated-System-Performance-Monitor
-
-## Overview
 The System Monitor project is a lightweight yet powerful Python-based monitoring tool designed to track CPU, memory, and disk usage in real-time. This tool logs system resource consumption into a CSV file and provides colored visual feedback in the terminal for better readability.
 The project is fully automated, running every 5 minutes using GitHub Actions, ensuring continuous tracking and logging, even when the local machine is turned off. This makes it useful for remote system monitoring and long-term performance analysis.
 
