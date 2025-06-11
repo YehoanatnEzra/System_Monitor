@@ -19,7 +19,7 @@ This project uses GitHub Actions to automatically execute the script every 5 min
 ## Example Output
 ### Terminal Output (Colored)
 ```
-2025-03-22 12:43:11 - CPU: 23% | ⚠️ Memory: 89.2% | Disk: 26.2%
+2025-03-22 12:43:11 - CPU: 23% |  Memory: 89.2% | Disk: 26.2%
 ```
 
 ### CSV Log Entry
