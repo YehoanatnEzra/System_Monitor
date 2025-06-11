@@ -51,8 +51,8 @@ def log_usage(cpu_usage, memory_usage, disk_usage):
            str: A formatted log entry with colored output for terminal display.
 
        """
-    cpu_label_color = f"{WARNING_COLOR}⚠️ CPU: {cpu_usage}%{Style.RESET_ALL}" if cpu_usage > HIGH_CPU_USAGE else f"{OK_COLOR}CPU: {cpu_usage}%{Style.RESET_ALL}"
-    mem_label_color = f"{WARNING_COLOR}⚠️ Memory: {memory_usage}%{Style.RESET_ALL}" if memory_usage > HIGH_MEMORY_USAGE else f"{OK_COLOR}Memory: {memory_usage}%{Style.RESET_ALL}"
+    cpu_label_color = f"{WARNING_COLOR} CPU: {cpu_usage}%{Style.RESET_ALL}" if cpu_usage > HIGH_CPU_USAGE else f"{OK_COLOR}CPU: {cpu_usage}%{Style.RESET_ALL}"
+    mem_label_color = f"{WARNING_COLOR} Memory: {memory_usage}%{Style.RESET_ALL}" if memory_usage > HIGH_MEMORY_USAGE else f"{OK_COLOR}Memory: {memory_usage}%{Style.RESET_ALL}"
     disk_label_color = f"{OK_COLOR}Disk: {disk_usage}%{Style.RESET_ALL}"
 
     print_entry = f"{time.strftime('%Y-%m-%d %H:%M:%S')} - {cpu_label_color} | {mem_label_color} | {disk_label_color}"
